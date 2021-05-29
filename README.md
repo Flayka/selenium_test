@@ -1,0 +1,1 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/7n16u15k9v2uaymp?svg=true)](https://ci.appveyor.com/project/Flayka/selenium-test)
