@@ -10,10 +10,8 @@ build: off  # будем использовать свой скрипт сбор
 
 install:
   # запускаем SUT (& означает, что в фоновом режиме - не блокируем терминал для запуска тестов)
-  - ps: $App = Start-Process -FilePath java -ArgumentList "-jar ./artifacts/app-order.jar" -PassThru
+  - java -jar ./artifacts/app-order.jar &
 
 build_script:
-  - ps: ./gradlew test --info "-Dselenide.headless=true" # запускаем тест, флаг --info позволяет выводить больше информации
-
-on_finish:
-  - ps: Stop-Process -Id $App.Id
+  - chmod +x gradlew
+  - ./gradlew test -Dselenium.headless=true --info  # запускаем тест, флаг --info позволяет выводить больше информации
